@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    
+    <title>Harry Potter Name Guessing</title>
+</head>
+
+<body>
+    <header>
+        <div class="headerImg">
+        </div>
+        <h1>Harry Potter Name Guess Game</h1>
+        <p class="instruction">Press Any Letter to Get Started!</p>
+    </header>
+
+    <div class="container">
+    <!--Displays underscore for current word-->
+    <div class="Word">
+        <p>Current Word: <span id="word"></span></p>
+        <p id="underscores"></p>
+        <br>
+    </div>
+
+    <!--Displays wins, remaining guesses-->
+    <div class="score">
+        <p>Wins: <span id="winsText"></span></p>
+        <br>
+        <p>Remaining Guesses: <span id="guessesText"></span></p>
+        <br>
+    </div>
+
+    <!--Displays letters alredy guessed-->
+    <div class="guessedLetters">
+        <p>Letters guessed: <span id="guessedLettersText"></span></p>
+        <br>
+    </div>
+
+    <!--Displays picture of the character whose name was guessed-->
+    <div class="charImg">
+
+    </div>
+</div>
+
+
+<script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
