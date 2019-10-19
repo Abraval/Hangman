@@ -20,7 +20,7 @@ console.log(currentWord.length);
 var under = [];
 
 for (i = 0; i < currentWord.length; i++) {
-    under.push("_");
+    under.push(" _ ");
 }
 console.log(under);
 document.querySelector("#underscores").innerHTML = under;
@@ -36,7 +36,7 @@ document.onkeyup = function (event) {
         console.log(currentWord);
         under = [];
         for (i = 0; i < currentWord.length; i++) {
-            under.push("_");
+            under.push(" _ ");
         }
         document.querySelector("#underscores").innerHTML = under;
         lettersGuessed = [];
