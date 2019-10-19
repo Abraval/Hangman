@@ -2,49 +2,80 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    
+
     <title>Harry Potter Name Guessing</title>
 </head>
 
 <body>
-    <header>
+    <div class="container">
+
         <div class="headerImg">
         </div>
-        <h1>Harry Potter Name Guess Game</h1>
-        <p class="instruction">Press Any Letter to Get Started!</p>
-    </header>
 
-    <div class="container">
-    <!--Displays underscore for current word-->
-    <div class="Word">
-        <p>Current Word: <span id="word"></span></p>
-        <p id="underscores"></p>
-        <br>
+        <div class="row py-3">
+            <div
+                class="col-10 border-0 rounded-pill shadow my-2 bg-dark text-white py-3 my-auto mx-auto text-center">
+                <h1>Harry Potter Name Guess Game</h1>
+            </div>
+        </div>
+        <div class="row py-3">
+            <div
+                class="col-6 border-0 rounded-pill shadow my-1 bg-secondary text-white py-auto my-auto mx-auto text-center">
+                <p class="instruction">Press Any Letter to Get Started!</p>
+            </div>
+        </div>
+
+
+        <div class="row py-3">
+            <div
+                class="col-6 border-0 rounded-pill shadow my-1 bg-dark text-white py-1 my-auto mx-auto text-center">
+                <!--Displays underscore for current word-->
+                <div class="Word font-weight-bold text-uppercase">
+                    <p>Current Word: <span id="word"></span></p>
+                    <p id="underscores"></p>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <!--Displays wins, remaining guesses-->
+        <div class="row py-3">
+            <div
+                class="col-4 border-0 rounded-pill shadow my-1 bg-secondary text-white py-1 my-auto mx-auto text-center">
+                <p>Wins: <span id="winsText"></span></p>
+                <br>
+            </div>
+        </div>
+
+        <div class="row py-3">
+            <div
+                class="col-4 border-0 rounded-pill shadow my-1 bg-secondary text-white py-1 my-auto mx-auto text-center">
+                <p>Remaining Guesses: <span id="guessesText"></span></p>
+                <br>
+            </div>
+        </div>
+
+
+        <!--Displays letters alredy guessed-->
+        <div class="row py-3">
+            <div
+                class="col-6 border-0 rounded-pill shadow my-1 bg-secondary text-white py-1 my-auto mx-auto text-center">
+                <div class="guessedLetters">
+                    <p>Letters guessed: <span id="guessedLettersText"></span></p>
+                    <br>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!--Displays wins, remaining guesses-->
-    <div class="score">
-        <p>Wins: <span id="winsText"></span></p>
-        <br>
-        <p>Remaining Guesses: <span id="guessesText"></span></p>
-        <br>
-    </div>
-
-    <!--Displays letters alredy guessed-->
-    <div class="guessedLetters">
-        <p>Letters guessed: <span id="guessedLettersText"></span></p>
-        <br>
-    </div>
-
-    <!--Displays picture of the character whose name was guessed-->
-    <div class="charImg">
-
-    </div>
-</div>
 
 
-<script src="assets/javascript/game.js"></script>
+
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 //declaring var-s
 
 //array of names
-var names = ["Dobby", "Harry", "Luna ", "Albus", "Sirius", "Ginny", "Voldemort", "Draco"]
+var names = ["Dobby", "Harry", "Luna", "Albus", "Sirius", "Ginny", "Voldemort", "Draco"]
 
 //we start the game with o wins and 13 guesses
 var wins = 0;
@@ -50,8 +50,11 @@ document.onkeyup = function (event) {
             for (var i = 0; i < currentWord.length; i++) {
                 if (userInput === currentWord[i]) {
                     under[i] = userInput;
+                    lettersGuessed.push(userInput);
+                    
                     console.log(under);
                 }
+                document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
             }
             document.querySelector("#underscores").innerHTML = under;
             --guesses;
