@@ -39,38 +39,54 @@ document.onkeyup = function (event) {
             under.push("_");
         }
         document.querySelector("#underscores").innerHTML = under;
-        lettersGuessed  = [];
+        lettersGuessed = [];
         document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
         return;
     }
     var userInput = event.key;
     console.log(userInput)
     if ((userInput >= 'a' && userInput <= 'z') || (userInput >= 'A' && userInput <= 'Z')) {
-    if (currentWord.indexOf(userInput) > -1) {
-        for (var i = 0; i < currentWord.length; i++) {
-            if (userInput === currentWord[i]) {
-                under[i] = userInput;
-                console.log(under);
+        if (currentWord.indexOf(userInput) > -1) {
+            for (var i = 0; i < currentWord.length; i++) {
+                if (userInput === currentWord[i]) {
+                    under[i] = userInput;
+                    console.log(under);
+                }
             }
+            document.querySelector("#underscores").innerHTML = under;
+            --guesses;
+            document.querySelector("#guessesText").innerHTML = guesses;
+        } else {
+            lettersGuessed.push(userInput);
+            document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
+            --guesses;
+            document.querySelector("#guessesText").innerHTML = guesses;
         }
-        document.querySelector("#underscores").innerHTML = under;
-        --guesses;
-        document.querySelector("#guessesText").innerHTML = guesses;
-    } else {
-        lettersGuessed.push(userInput);
-        document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
-        --guesses;
-        document.querySelector("#guessesText").innerHTML = guesses;
+
+
+
     }
-    
+    // if ((currentWord = under) && (under.match(/[a-z]/i))) {
+    //     alert("WINNER!")
+    //     wins++;
+    //     guesses = 10;
+    //     currentWord = names[Math.floor(Math.random() * names.length)].toLowerCase();
+    //     console.log(currentWord);
+    //     under = [];
+    //     for (i = 0; i < currentWord.length; i++) {
+    //         under.push("_");
+    //     }
+    //     document.querySelector("#underscores").innerHTML = under;
+    //     lettersGuessed = [];
+    //     document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
+    //     return;
 
-    
-}
+    // }
 
-else {
-  alert("Pick a letter!");
+    else {
+        alert("Pick a letter!");
 
-}
+    }
 }
 
 
