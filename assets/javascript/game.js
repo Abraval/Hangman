@@ -31,13 +31,15 @@ document.onkeyup = function (event) {
     if (guesses < 1) {
         alert("GAME OVER!")
         wins = 0;
-        guesses =10;
+        guesses = 10;
+        currentWord = names[Math.floor(Math.random() * names.length)].toLowerCase();
+        console.log(currentWord);
         under = [];
         for (i = 0; i < currentWord.length; i++) {
             under.push("_");
         }
         document.querySelector("#underscores").innerHTML = under;
-        lettersGuessed = [];
+        lettersGuessed  = [];
         document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
         return;
     }
@@ -97,14 +99,3 @@ else {
         //*reset the game
         //---------------
        // .include or .index of
-
-
-
-
-
-
-
-
-
-
-
