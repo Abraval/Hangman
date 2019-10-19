@@ -50,12 +50,11 @@ document.onkeyup = function (event) {
             for (var i = 0; i < currentWord.length; i++) {
                 if (userInput === currentWord[i]) {
                     under[i] = userInput;
-                    lettersGuessed.push(userInput);
-                    
                     console.log(under);
                 }
-                document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
             }
+            lettersGuessed.push(userInput);
+            document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
             document.querySelector("#underscores").innerHTML = under;
             --guesses;
             document.querySelector("#guessesText").innerHTML = guesses;
@@ -69,7 +68,7 @@ document.onkeyup = function (event) {
 
 
     }
-    // if ((currentWord = under) && (under.match(/[a-z]/i))) {
+    // if (currentWord = under && under.length > 1) {
     //     alert("WINNER!")
     //     wins++;
     //     guesses = 10;
