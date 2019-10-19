@@ -30,6 +30,15 @@ document.querySelector("#guessesText").innerHTML = guesses;
 document.onkeyup = function (event) {
     if (guesses < 1) {
         alert("GAME OVER!")
+        wins = 0;
+        guesses =10;
+        under = [];
+        for (i = 0; i < currentWord.length; i++) {
+            under.push("_");
+        }
+        document.querySelector("#underscores").innerHTML = under;
+        lettersGuessed = [];
+        document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
         return;
     }
     var userInput = event.key;
@@ -51,6 +60,9 @@ document.onkeyup = function (event) {
         --guesses;
         document.querySelector("#guessesText").innerHTML = guesses;
     }
+    
+
+    
 }
 
 else {
@@ -58,6 +70,7 @@ else {
 
 }
 }
+
 
 
 //pseudo
