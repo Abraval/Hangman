@@ -9,38 +9,30 @@ var guesses = 10;
 
 //array of letters already guessed
 var lettersGuessed = [];
-
-//let's randomly pick a word
-
-var currentWord = names[Math.floor(Math.random() * names.length)].toLowerCase();
-console.log(currentWord);
-console.log(currentWord.length);
-
-//create a number of underscores based on number of letters
+var currentWord;
 var under = [];
 
-for (i = 0; i < currentWord.length; i++) {
-    under.push(" _ ");
+function setGame() {
+    currentWord = names[Math.floor(Math.random() * names.length)].toLowerCase();
+    guesses = 10;
+    under=[];
+    for (i = 0; i < currentWord.length; i++) {
+        under.push(" _ ");
+    }
+    document.querySelector("#underscores").innerHTML = under;
+    document.querySelector("#guessesText").innerHTML = guesses;
+    lettersGuessed = [];
+    document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
+    
 }
-console.log(under);
-document.querySelector("#underscores").innerHTML = under;
-document.querySelector("#guessesText").innerHTML = guesses;
+ setGame();
 
 // get user input
 document.onkeyup = function (event) {
     if (guesses < 1) {
         alert("GAME OVER!")
-        wins = 0;
-        guesses = 10;
-        currentWord = names[Math.floor(Math.random() * names.length)].toLowerCase();
-        console.log(currentWord);
-        under = [];
-        for (i = 0; i < currentWord.length; i++) {
-            under.push(" _ ");
-        }
-        document.querySelector("#underscores").innerHTML = under;
-        lettersGuessed = [];
-        document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
+        setGame();
+        
         return;
     }
     var userInput = event.key;
