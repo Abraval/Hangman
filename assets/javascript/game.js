@@ -5,6 +5,7 @@ var names = ["Dobby", "Harry", "Luna", "Albus", "Sirius", "Ginny", "Voldemort", 
 
 //we start the game with o wins and 13 guesses
 var wins = 0;
+document.querySelector("#winsText").innerHTML = wins;
 var guesses = 10;
 
 //array of letters already guessed
@@ -35,6 +36,8 @@ document.onkeyup = function (event) {
         
         return;
     }
+
+    
     var userInput = event.key;
     console.log(userInput)
     if ((userInput >= 'a' && userInput <= 'z') || (userInput >= 'A' && userInput <= 'Z')) {
@@ -56,7 +59,18 @@ document.onkeyup = function (event) {
             --guesses;
             document.querySelector("#guessesText").innerHTML = guesses;
         }
-
+        // var alert1 = setTimeout(function() {
+        //     alert("YOU WON!");
+        // }, 1000);
+        if (under.includes(" _ ") == false) {
+            var alert1 = setTimeout(function() {
+                alert("YOU WON!");} , 200);
+            alert1;
+            wins++;
+            document.querySelector("#winsText").innerHTML = wins;
+            setGame();
+               
+        }
 
 
     }
