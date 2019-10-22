@@ -1,7 +1,7 @@
 //declaring var-s
 
 //array of names
-var names = ["Dobby", "Harry", "Luna", "Albus", "Sirius", "Ginny", "Voldemort", "Draco"]
+var names = ["Dobby", "Harry", "Luna", "Albus", "Sirius", "Ginny", "Voldemort", "Draco", "Ron", "Hermione", "Snape", "Rubeus", "Remus", "Neville", "Minerva", "Hedwig", "Peeves", "Percey", "Viktor"]
 
 //we start the game with o wins and 13 guesses
 var wins = 0;
@@ -14,7 +14,7 @@ var currentWord;
 var under = [];
 
 function setGame() {
-    currentWord = names[Math.floor(Math.random() * names.length)].toLowerCase();
+    currentWord = names[Math.floor(Math.random() * names.length)].toUpperCase();
     guesses = 10;
     under=[];
     for (i = 0; i < currentWord.length; i++) {
@@ -31,7 +31,7 @@ function setGame() {
 // get user input
 document.onkeyup = function (event) {
     if (guesses < 1) {
-        alert("GAME OVER!")
+        alert("GAME OVER! It was " + currentWord);
         setGame();
         
         return;
@@ -39,6 +39,8 @@ document.onkeyup = function (event) {
 
     
     var userInput = event.key;
+    userInput = userInput.toUpperCase();
+    
     console.log(userInput)
     if ((userInput >= 'a' && userInput <= 'z') || (userInput >= 'A' && userInput <= 'Z')) {
         if (currentWord.indexOf(userInput) > -1) {
