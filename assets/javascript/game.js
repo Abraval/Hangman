@@ -7,6 +7,8 @@ var names = ["Dobby", "Harry", "Luna", "Albus", "Sirius", "Ginny", "Voldemort", 
 var wins = 0;
 document.querySelector("#winsText").innerHTML = wins;
 var guesses = 10;
+var alpha = "abcdefghijklmnopqrstuvwxyz"
+var alphaCaps = alpha.toUpperCase();
 
 //array of letters already guessed
 var lettersGuessed = [];
@@ -16,7 +18,7 @@ var under = [];
 function setGame() {
     currentWord = names[Math.floor(Math.random() * names.length)].toUpperCase();
     guesses = 10;
-    under=[];
+    under = [];
     for (i = 0; i < currentWord.length; i++) {
         under.push(" _ ");
     }
@@ -24,58 +26,72 @@ function setGame() {
     document.querySelector("#guessesText").innerHTML = guesses;
     lettersGuessed = [];
     document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
-    
+
 }
- setGame();
+setGame();
 
 // get user input
 document.onkeyup = function (event) {
     if (guesses < 1) {
         alert("GAME OVER! It was " + currentWord);
         setGame();
-        
+
         return;
     }
 
-    
     var userInput = event.key;
     userInput = userInput.toUpperCase();
-    
-    console.log(userInput)
-    if ((userInput >= 'a' && userInput <= 'z') || (userInput >= 'A' && userInput <= 'Z')) {
-        if (currentWord.indexOf(userInput) > -1) {
-            for (var i = 0; i < currentWord.length; i++) {
-                if (userInput === currentWord[i]) {
-                    under[i] = userInput;
-                    console.log(under);
-                }
-            }
-            lettersGuessed.push(userInput);
-            document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
-            document.querySelector("#underscores").innerHTML = under;
-            --guesses;
-            document.querySelector("#guessesText").innerHTML = guesses;
-        } else {
-            lettersGuessed.push(userInput);
-            document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
-            --guesses;
-            document.querySelector("#guessesText").innerHTML = guesses;
-        }
-        // var alert1 = setTimeout(function() {
-        //     alert("YOU WON!");
-        // }, 1000);
-        if (under.includes(" _ ") == false) {
-            var alert1 = setTimeout(function() {
-                alert("YOU WON!");} , 200);
-            alert1;
-            wins++;
-            document.querySelector("#winsText").innerHTML = wins;
-            setGame();
-               
-        }
 
+    if (alphaCaps.indexOf(userInput) === -1) {
+        alert("Pick a letter!");
+        return;
+    }
+
+    if (lettersGuessed.indexOf(userInput) > -1) {
+        alert("You pressed this letter already!")
+        return;
+    }
+
+    console.log(userInput)
+
+    if (currentWord.indexOf(userInput) > -1) {
+        for (var i = 0; i < currentWord.length; i++) {
+            if (userInput === currentWord[i]) {
+                under[i] = userInput;
+                console.log(under);
+            }
+        }
+        lettersGuessed.push(userInput);
+        document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
+        document.querySelector("#underscores").innerHTML = under;
+        --guesses;
+        document.querySelector("#guessesText").innerHTML = guesses;
+    } else {
+        lettersGuessed.push(userInput);
+        document.querySelector("#guessedLettersText").innerHTML = lettersGuessed;
+        --guesses;
+        document.querySelector("#guessesText").innerHTML = guesses;
+    }
+    // var alert1 = setTimeout(function() {
+    //     alert("YOU WON!");
+    // }, 1000);
+
+    console.log(under.join(""));
+    console.log(currentWord);
+
+    if (currentWord === under.join("")) {
+        var alert1 = setTimeout(function () {
+            alert("YOU WON!");
+        }, 200);
+        alert1;
+        wins++;
+        document.querySelector("#winsText").innerHTML = wins;
+        setGame();
 
     }
+
+
+
     // if (currentWord = under && under.length > 1) {
     //     alert("WINNER!")
     //     wins++;
@@ -93,10 +109,7 @@ document.onkeyup = function (event) {
 
     // }
 
-    else {
-        alert("Pick a letter!");
 
-    }
 }
 
 
